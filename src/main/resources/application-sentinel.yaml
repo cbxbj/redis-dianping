@@ -1,0 +1,10 @@
+spring:
+  data:
+    redis:
+      #注: sentinel 还需配置主从读写分离策略
+      sentinel:
+        master: mymaster # sentinel 配置文件中配置的主节点名称
+        nodes: # sentinel 的地址
+          - aliyun:27001
+          - aliyun:27002
+          - aliyun:27003

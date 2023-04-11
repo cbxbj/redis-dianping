@@ -1,0 +1,12 @@
+spring:
+  data:
+    redis:
+      #注: cluster 还需配置主从读写分离策略
+      cluster:
+        nodes: # cluster 中所有节点的地址
+          - aliyun:7001
+          - aliyun:7002
+          - aliyun:7003
+          - aliyun:8001
+          - aliyun:8002
+          - aliyun:8003

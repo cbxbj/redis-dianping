@@ -1,0 +1,28 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: redis-dianping
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://aliyun:3306/redis-dianping?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+  data:
+    redis:
+      host: aliyun
+      port: 6379
+      password: 123456
+      lettuce:
+        pool:
+          max-active: 10
+          max-idle: 8
+          min-idle: 0
+          time-between-eviction-runs: 10s
+  jackson:
+    default-property-inclusion: non_null # JSON处理时忽略非空字段
+mybatis-plus:
+  type-aliases-package: org.example.entity # 别名扫描包
+logging:
+  level:
+    org.example: debug

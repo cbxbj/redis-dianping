@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "ae7f57c8-d1f1-41a4-ab15-62bd6dbb6ae2",
+		"name": "redis-dianping",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16046130"
+	},
+	"item": [
+		{
+			"name": "增加秒杀券",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"shopId\": 1,\n    \"title\": \"100元代金券\",\n    \"subTitle\": \"周一至周五均可使用\",\n    \"rules\": \"全场通用\\\\n无需预约\\\\n可无限叠加\\\\n不兑现、不找零\\\\n仅限堂食\",\n    \"payValue\": 8000,\n    \"actualValue\": 10000,\n    \"type\": 1,\n    \"stock\": 100,\n    \"beginTime\": \"2023-04-01T10:00:00\",\n    \"endTime\": \"2030-04-10T10:00:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8081/voucher/seckill",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8081",
+					"path": [
+						"voucher",
+						"seckill"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "发送验证码",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8081/user/code?phone=15712345678",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8081",
+					"path": [
+						"user",
+						"code"
+					],
+					"query": [
+						{
+							"key": "phone",
+							"value": "15712345678"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "登陆",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phone\":\"15712345678\",\n    \"code\":\"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8081/user/login",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8081",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取秒杀券",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "1234567890123456789",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "127.0.0.1:8081/voucher-order/seckill/2",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8081",
+					"path": [
+						"voucher-order",
+						"seckill",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
